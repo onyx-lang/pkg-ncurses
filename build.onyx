@@ -1,22 +1,20 @@
 #load "core/std"
-#load "scripts/c_binding"
-#load "scripts/c_library"
 #load "./module"
 
-use package core
-use package c_binding
+use core
+use cbindgen
 
 main :: () {
     path := module_path(#file);
 
     c_file_path := string.concat(path, "ncurses.c");
 
-    result := build_c_binding(.{
+    result := generate_c_binding(.{
         output_file = c_file_path,
-        foreign_block = (package ncurses).foreign_block,
+        foreign_block = ncurses.foreign_block,
 
         cast_map = .[
-            .{ (package ncurses).WINDOW, "WINDOW *" },
+            .{ ncurses.WINDOW, "WINDOW *" },
         ],
 
         preamble = .[
@@ -36,17 +34,13 @@ void __get_max_yx(WINDOW *w, int *y, int *x) { getmaxyx(w, *y, *x); }
     });
 
     if !result {
-        println("Failed to make c-file.");
         os.exit(1);
-    } else {
-        println("Sucessfully made ncurses.c");
     }
 
-    result = compile_c_file(c_file_path, string.concat(path, "onyx_ncurses.so"), libraries=.["ncurses"]);
+    result = compile_c_file(c_file_path, string.concat(path, "onyx_ncurses"), libraries=.["ncurses"]);
     if !result {
-        println("Failed to compile ncurses.c");
         os.exit(1);
-    } else {
-        println("Sucessfully made onyx_ncurses.so");
     }
+
+    os.remove_file(c_file_path);
 }
