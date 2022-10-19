@@ -180,7 +180,7 @@ use core {cptr, conv, string}
     is_syncok :: (w: WINDOW) -> bool ---
     wgetparent :: (w: WINDOW) -> WINDOW ---
     wgetdelay  :: (w: WINDOW) -> i32 ---
-    @TODO // Why doesn't this one work?
+    // Why doesn't this one work?
     // wgetscrreg :: (w: WINDOW, top, bottom: ^i32) -> void ---
 
     // window
@@ -339,9 +339,9 @@ use core {cptr, conv, string}
 
     // mouse
     has_mouse :: () -> bool ---
-    getmouse :: (@out event: ^MEvent) -> i32 ---
-    ungetmouse :: (@out event: ^MEvent) -> i32 ---
-    mousemask :: (newmask: mmask_t, @out oldmask: ^mmask_t) -> mmask_t ---
+    getmouse :: (event: ^MEvent) -> i32 ---
+    ungetmouse :: (event: ^MEvent) -> i32 ---
+    mousemask :: (newmask: mmask_t, oldmask: ^mmask_t) -> mmask_t ---
     wenclose :: (w: WINDOW, y, x: i32) -> bool ---
     mouse_trafo :: (py, px: ^i32, to_screen: bool) -> bool ---
     wmouse_trafo :: (w: WINDOW, py, px: ^i32, to_screen: bool) -> bool ---
