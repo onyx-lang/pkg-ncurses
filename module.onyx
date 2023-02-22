@@ -508,7 +508,7 @@ KEY_RIGHT :: 0405		/* right-arrow key */
 KEY_HOME :: 0406		/* home key */
 KEY_BACKSPACE :: 0407		/* backspace key */
 KEY_F0 :: 0410		/* Function keys.  Space for 64 */
-KEY_F :: macro (n) => KEY_FO + n /* Value of function key n */
+KEY_F :: macro (n) => #this_package.KEY_F0 + n /* Value of function key n */
 KEY_DL :: 0510		/* delete-line key */
 KEY_IL :: 0511		/* insert-line key */
 KEY_DC :: 0512		/* delete-character key */
