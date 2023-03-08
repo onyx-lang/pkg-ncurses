@@ -38,7 +38,7 @@ void __get_max_yx(WINDOW *w, int *y, int *x) { getmaxyx(w, *y, *x); }
         os.exit(1);
     }
 
-    result = compile_c_file(c_file_path, string.concat(path, "onyx_ncurses"), libraries=.["ncurses"]);
+    result = compile_c_file(c_file_path, string.concat(path, "onyx_ncurses"), libraries=.["ncursesw"]);
     if !result {
         os.exit(1);
     }
