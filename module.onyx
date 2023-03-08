@@ -32,7 +32,7 @@ use core {cptr, conv, string}
     color_content :: (color: i32, r, g, b: ^i32) -> i32 ---
     pair_content  :: (pair: i32, f, b: ^i32) -> i32 ---
     reset_color_pairs :: () -> void ---
-    COLOR_PAIR :: (color: i32) -> i32 ---
+    COLOR_PAIR :: (color: i32) -> u16 ---
     PAIR_NUMBER :: (pair: i32) -> i32 ---
 
     // inopts
@@ -360,6 +360,11 @@ use core {cptr, conv, string}
     // variables
     __get_stdscr :: () -> WINDOW ---
     NCURSES_ACS  :: (a: i32) -> chtype ---
+
+
+
+    // locale
+    setlocale :: (category: u32, locale: cstr) -> cptr(u8) ---
 }
 
 // Types have to always be included
@@ -591,5 +596,19 @@ KEY_UNDO :: 0630		/* undo key */
 KEY_MOUSE :: 0631		/* Mouse event has occurred */
 
 
+// Locales
+LC_CTYPE :: 0
+LC_NUMERIC :: 1
+LC_TIME :: 2
+LC_COLLATE :: 3
+LC_MONETARY :: 4
+LC_MESSAGES :: 5
+LC_ALL :: 6
+LC_PAPER :: 7
+LC_NAME :: 8
+LC_ADDRESS :: 9
+LC_TELEPHONE :: 10
+LC_MEASUREMENT :: 11
+LC_IDENTIFICATION :: 12
 
 } // !Building_Library

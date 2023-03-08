@@ -20,6 +20,7 @@ main :: () {
         preamble = .[
 """
 #include "ncurses.h"
+#include <locale.h>
 
 #define __get_stdscr() ((unsigned long int) stdscr)
 
