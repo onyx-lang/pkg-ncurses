@@ -32,7 +32,7 @@ use core {cptr, conv, string}
     color_content :: (color: i32, r, g, b: ^i32) -> i32 ---
     pair_content  :: (pair: i32, f, b: ^i32) -> i32 ---
     reset_color_pairs :: () -> void ---
-    COLOR_PAIR :: (color: i32) -> u16 ---
+    COLOR_PAIR :: (color: i32) -> i32 ---
     PAIR_NUMBER :: (pair: i32) -> i32 ---
 
     // inopts
