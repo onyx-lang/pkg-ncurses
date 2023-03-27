@@ -1,6 +1,7 @@
 package ncurses
 
-use core {cptr, conv, string}
+use core {package, cptr, conv, string}
+use runtime
 
 #local Building_Library :: #defined (runtime.Generated_Foreign_Info)
 
