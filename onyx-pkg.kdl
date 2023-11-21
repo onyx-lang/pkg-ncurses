@@ -1,0 +1,18 @@
+package {
+    name "ncurses" 
+    author "Brendan Hansen" 
+    url "git://onyxlang.io/repo/ncurses" 
+    description "An ncurses wrapper for Onyx." 
+    version "0.0.10" 
+}
+
+config {
+    dependency_source_path "./lib" 
+    dependency_binary_path "./bin" 
+}
+
+native {
+    library "onyx_ncurses" 
+    build "onyx run build --generate-foreign-info" 
+}
+
